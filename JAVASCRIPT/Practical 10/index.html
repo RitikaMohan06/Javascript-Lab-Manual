@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Records | JSON Handling</title>
+  <style>
+    /* === CSS Styling === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      text-align: center;
+      background: #1a237e;
+      color: white;
+      padding: 30px 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    .container {
+      flex: 1;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      background: #3949ab;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+    button:hover {
+      background: #283593;
+      transform: translateY(-2px);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 14px 16px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background: #1a237e;
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background: #f3f4fd;
+    }
+
+    .loader {
+      text-align: center;
+      color: #1a237e;
+      font-size: 18px;
+      font-weight: 600;
+      animation: blink 1.2s infinite;
+      margin-top: 30px;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0.5;
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      background: #1a237e;
+      color: white;
+      padding: 12px;
+      font-size: 14px;
+      margin-top: auto;
+    }
+
+    @media (max-width: 600px) {
+      th, td {
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- === Header === -->
+  <header>
+    <h1>🎓 Student Records Portal</h1>
+    <p>Dynamic JSON Data Handling & Mini API Mock using JavaScript</p>
+  </header>
+
+  <!-- === Main Section === -->
+  <main class="container">
+    <div class="controls">
+      <button id="loadData">📥 Load Student Data</button>
+      <button id="sortByName">🔤 Sort by Name</button>
+      <button id="sortByAge">🔢 Sort by Age</button>
+    </div>
+
+    <div id="loader" class="loader hidden">Loading data...</div>
+
+    <table id="studentTable" class="hidden">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Course</th>
+          <th>Grade</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </main>
+
+  <!-- === Footer === -->
+  <footer>
+    <p>Made with ❤ using HTML, CSS & JavaScript | JSON Handling Demo</p>
+  </footer>
+
+  <!-- === JavaScript === -->
+  <script>
+    const loadBtn = document.getElementById("loadData");
+    const sortByNameBtn = document.getElementById("sortByName");
+    const sortByAgeBtn = document.getElementById("sortByAge");
+    const table = document.getElementById("studentTable");
+    const tbody = table.querySelector("tbody");
+    const loader = document.getElementById("loader");
+
+    let students = [];
+
+    // Simulate API fetch with setTimeout
+    function fetchStudents() {
+      loader.classList.remove("hidden");
+      table.classList.add("hidden");
+
+      setTimeout(() => {
+        // Simulated JSON data
+        const data = [
+          { id: 101, name: "Rohan Mehta", age: 21, course: "Computer Science", grade: "A" },
+          { id: 102, name: "Priya Sharma", age: 22, course: "Information Technology", grade: "A+" },
+          { id: 103, name: "Amit Deshmukh", age: 20, course: "Mechanical Engineering", grade: "B+" },
+          { id: 104, name: "Neha Patil", age: 19, course: "Electronics & Telecommunication", grade: "A-" },
+          { id: 105, name: "Tanvi Joshi", age: 23, course: "Civil Engineering", grade: "B" }
+        ];
+
+        students = data;
+        displayStudents(students);
+        loader.classList.add("hidden");
+        table.classList.remove("hidden");
+      }, 1200);
+    }
+
+    // Display data in table
+    function displayStudents(data) {
+      tbody.innerHTML = "";
+      data.forEach((s) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${s.id}</td>
+          <td>${s.name}</td>
+          <td>${s.age}</td>
+          <td>${s.course}</td>
+          <td>${s.grade}</td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    // Sorting buttons
+    sortByNameBtn.addEventListener("click", () => {
+      if (students.length) {
+        students.sort((a, b) => a.name.localeCompare(b.name));
+        displayStudents(students);
+      }
+    });
+
+    sortByAgeBtn.addEventListener("click", () => {
+      if (students.length) {
+        students.sort((a, b) => a.age - b.age);
+        displayStudents(students);
+      }
+    });
+
+    loadBtn.addEventListener("click", fetchStudents);
+  </script>
+</body>
+</html>

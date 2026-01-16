@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shopping</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Shopzie</h1>
+  </header>
+
+  <main>
+
+        <section class="showcase">
+      <h2>Available Products</h2>
+      <div class="card-container">
+        <div class="card">
+          <img src="pexels-katia-miasoed-624959709-27442725.jpg" alt="Lipstick">
+          <p>Top</p>
+          <span>₹600</span>
+        </div>
+        <div class="card">
+          <img src="pexels-kseniachernaya-3951783.jpg" alt="Perfume">
+          <p>Trench Coat</p>
+          <span>₹1800</span>
+        </div>
+        <div class="card">
+          <img src="pexels-th-c-le-h-u-605106-1390600.jpg" alt="Sunscreen">
+          <p>Co-od set</p>
+          <span>₹2500</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="shop">
+      <h2>Products</h2>
+      <div class="product">
+        <p>Top (₹600)</p>
+        <input type="number" min="0" value="0" data-price="600">
+      </div>
+      <div class="product">
+        <p>Trench Coat (₹1800)</p>
+        <input type="number" min="0" value="0" data-price="1800">
+      </div>
+      <div class="product">
+        <p>Co-od set (₹2500)</p>
+        <input type="number" min="0" value="0" data-price="2500">
+      </div>
+      <button id="calcBtn">Calculate Bill</button>
+    </section>
+
+    <section class="bill">
+      <h2>Billing Summary</h2>
+      <div id="billOutput">Enter quantities and click "Calculate Bill" button.</div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Shopzie</p>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
+

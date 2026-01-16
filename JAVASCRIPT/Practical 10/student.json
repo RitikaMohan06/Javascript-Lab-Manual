@@ -1,0 +1,7 @@
+[
+  { "rollno": 101, "name": "Aarav Sharma", "department": "CSE", "semester": 5 },
+  { "rollno": 102, "name": "Neha Patel", "department": "ECE", "semester": 3 },
+  { "rollno": 103, "name": "Rohan Singh", "department": "IT", "semester": 6 },
+  { "rollno": 104, "name": "Priya Verma", "department": "ME", "semester": 4 },
+  { "rollno": 105, "name": "Rahul Mehta", "department": "CSE", "semester": 2 }
+]

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gym Admission Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1 class="title">FlexFit Gym Registration</h1>
+
+  <form id="gymForm" class="form-container">
+
+    <label>Full Name *</label>
+    <input type="text" id="fullname" class="input"><br>
+
+    <label>Age *</label>
+    <input type="number" id="age" class="input"><br>
+
+    <label>Gender *</label>
+    <select id="gender" class="input">
+      <option value="">Select</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select><br>
+
+    <label>Contact Number *</label>
+    <input type="text" id="contact" class="input"><br>
+
+    <label>Email *</label>
+    <input type="email" id="email" class="input"><br>
+
+    <label>Choose Plan *</label>
+    <select id="plan" class="input">
+      <option value="">Select</option>
+      <option>Monthly - ₹999</option>
+      <option>Quarterly - ₹2499</option>
+      <option>Yearly - ₹7999</option>
+    </select><br>
+
+    <label>Password *</label>
+    <input type="password" id="password" class="input"><br>
+
+    <label>Confirm Password *</label>
+    <input type="password" id="confirmPassword" class="input"><br>
+
+    <input type="checkbox" id="terms"> I agree to gym rules & policies.<br><br>
+
+    <button type="submit" class="btn">Register</button>
+
+    <p id="message"></p>
+  </form>
+
+<script src="script.js"></script>
+</body>
+</html>

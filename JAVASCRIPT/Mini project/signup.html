@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TastyGo — Signup</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><h1>TastyGo</h1></div>
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="menu.html" class="nav-link">Menu</a>
+      <div class="nav-right">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><svg viewBox="0 0 24 24" class="icon"><path d="M12 3v2M12 19v2M3 12h2M19 12h2" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="auth-section">
+      <div class="auth-card">
+        <h2>Create Account</h2>
+        <form id="signupForm" onsubmit="handleSignup(event)">
+          <label>
+            Full name
+            <input type="text" id="signupName" required />
+          </label>
+
+          <label>
+            Email
+            <input type="email" id="signupEmail" required />
+          </label>
+
+          <label>
+            Password (min 6)
+            <input type="password" id="signupPassword" required minlength="6" />
+          </label>
+
+          <div class="auth-actions">
+            <button class="btn" type="submit">Signup</button>
+            <a class="btn ghost" href="login.html">Login</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"></footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

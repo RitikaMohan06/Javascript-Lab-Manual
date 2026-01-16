@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TastyGo — Cart</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 24 24" width="28" height="28" aria-hidden>
+        <path d="M3 12a9 9 0 1118 0 9 9 0 01-18 0z" fill="currentColor" opacity="0.12"></path>
+      </svg>
+      <h1>TastyGo</h1>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="menu.html" class="nav-link">Menu</a>
+      <a href="cart.html" class="nav-link">Cart</a>
+
+      <div class="nav-right">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><svg viewBox="0 0 24 24" class="icon"><path d="M12 3v2M12 19v2M3 12h2M19 12h2" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></button>
+        <a href="login.html" class="nav-link small">Login</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="cart-section">
+      <h2>Your Cart</h2>
+      <div id="cartItems" class="cart-list">
+        <!-- populated by script.js -->
+      </div>
+
+      <div class="cart-footer">
+        <div id="totalPrice">Total: ₹0</div>
+        <div class="cart-actions">
+          <a class="btn ghost" href="menu.html">Continue Shopping</a>
+          <button class="btn" onclick="gotoCheckout()">Proceed to Checkout</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+  
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
